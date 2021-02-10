@@ -45,17 +45,21 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = ` ${Math.round(response.data.wind.speed)} km/h`;
 }
 
-function search(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-input").value;
+function searchCity(city) {
   let apiKey = "5c043941096cfca1b8129a71701e2dcf";
   let units = "metric";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   axios.get(apiURL).then(showWeather);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#search-input").value;
+  searchCity(city);
+}
+
 let form = document.querySelector("#city-search");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
 
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
@@ -77,3 +81,5 @@ function getCurrentLocation(event) {
 
 let currentLocationButton = document.querySelector("#compass");
 currentLocationButton.addEventListener("click", getCurrentLocation);
+
+searchCity("London");
