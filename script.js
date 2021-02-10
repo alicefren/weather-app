@@ -38,12 +38,11 @@ if (currentMinute < 10) {
   liveDate.innerHTML = `${currentDay} ${currentDate} ${currentMonth}, ${currentHour}:${currentMinute}`;
 }
 
-function search(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#search-input");
-  let h2 = document.querySelector("h2");
-  h2.innerHTML = `${searchInput.value}`;
-  searchCity(searchInput.value);
+function showWeather(response) {
+  document.querySelector(".city").innerHTML = response.data.name;
+  document.querySelector("#temp-degrees").innerHTML = `Currently ${Math.round(response.data.main.temp)} °C`;
+  document.querySelector("#humidity").innerHTML = ` ${response.data.main.humidity} %`;
+  document.querySelector("#wind").innerHTML = ` ${Math.round(response.data.wind.speed)} km/h`;
 }
 
 function search(event) {
