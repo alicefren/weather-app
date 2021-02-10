@@ -37,6 +37,10 @@ button {
   color: #03506f;
 }
 
+.other-weather-info {
+  text-align: left;
+}
+
 .weather {
   padding-top: 20px;
 }
