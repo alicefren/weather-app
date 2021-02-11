@@ -70,10 +70,17 @@ button {
   padding: 10px 0 0 20px;
 }
 
-#description,
-#tomorrow-description {
-  padding: 0 0;
-  margin: 0 0;
-  font-size: 12px;
-  text-transform: capitalize;
+.temp-degrees {
+  display: inline;
+}
+
+#celsius-link:link,
+#fahrenheit-link:link {
+  text-decoration: none;
+  color: #03506f;
+}
+
+#celsius-link:hover,
+#fahrenheit-link:hover {
+  text-decoration: underline;
 }

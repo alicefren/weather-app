@@ -44,8 +44,11 @@ if (currentMinute < 10) {
 }
 
 function showWeather(response) {
+
+  celsiusTemperature = response.data.main.temp;
+
   document.querySelector(".city").innerHTML = response.data.name;
-  document.querySelector("#temp-degrees").innerHTML = `Currently ${Math.round(response.data.main.temp)} °C`;
+  document.querySelector("#temp-degrees").innerHTML = `Currently ${Math.round(response.data.main.temp)} `;
   document.querySelector("#humidity").innerHTML = ` ${response.data.main.humidity} %`;
   document.querySelector("#wind").innerHTML = ` ${Math.round(response.data.wind.speed)} km/h`;
   document.querySelector("#max-temp").innerHTML = `High ${Math.round(response.data.main.temp_max)} °C`;
@@ -90,7 +93,7 @@ form.addEventListener("submit", handleSubmit);
 function showTemperature(response) {
   let temperature = Math.round(response.data.main.temp);
   let message = `Currently ${temperature} °C`;
-  let span = document.querySelector("span");
+  let span = document.querySelector("temp-degrees");
   span.innerHTML = message;
 }
 
@@ -105,10 +108,28 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemp = (celsiusTemperature * 9) / 5 + 32;
+  let tempDegrees = document.querySelector("#temp-degrees");
+  tempDegrees.innerHTML = `Currently ${Math.round(fahrenheitTemp)}`;
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let tempDegrees = document.querySelector("#temp-degrees");
+  tempDegrees.innerHTML = `Currently ${Math.round(celsiusTemperature)}`;
+}
+
+let celsiusTemperature = null;
+
 let currentLocationButton = document.querySelector("#compass");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
 
-
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
 
 searchCity("London");
