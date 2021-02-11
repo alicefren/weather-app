@@ -14,7 +14,7 @@ button {
   width: 50%;
   padding: 20px 0;
   background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
-  max-width: 600px;
+  max-width: 500px;
   border-radius: 6px;
 }
 
