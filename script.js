@@ -43,6 +43,9 @@ function showWeather(response) {
   document.querySelector("#temp-degrees").innerHTML = `Currently ${Math.round(response.data.main.temp)} °C`;
   document.querySelector("#humidity").innerHTML = ` ${response.data.main.humidity} %`;
   document.querySelector("#wind").innerHTML = ` ${Math.round(response.data.wind.speed)} km/h`;
+  document.querySelector("#max-temp").innerHTML = `High ${Math.round(response.data.main.temp_max)} °C`;
+  document.querySelector("#min-temp").innerHTML = `Low ${Math.round(response.data.main.temp_min)} °C`;
+  document.querySelector("#description").innerHTML = response.data.weather[0].description;
 }
 
 function searchCity(city) {

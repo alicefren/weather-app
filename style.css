@@ -12,7 +12,7 @@ button {
   display: block;
   margin: 0 auto;
   width: 50%;
-  padding: 50px 0;
+  padding: 20px 0;
   background-image: linear-gradient(to top, #d9afd9 0%, #97d9e1 100%);
   max-width: 600px;
   border-radius: 6px;
@@ -31,6 +31,7 @@ button {
 .card-group {
   max-width: 90%;
   margin: 0 auto;
+  padding: 0 0;
 }
 
 .card-body {
@@ -67,4 +68,12 @@ button {
 
 .row {
   padding: 10px 0 0 20px;
+}
+
+#description,
+#tomorrow-description {
+  padding: 0 0;
+  margin: 0 0;
+  font-size: 12px;
+  text-transform: capitalize;
 }
