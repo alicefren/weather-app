@@ -74,17 +74,11 @@ function handleSubmit(event) {
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", handleSubmit);
 
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let message = `Currently ${temperature} °C`;
-  let span = document.querySelector("temp-degrees");
-  span.innerHTML = message;
-}
 
 function searchLocation(position) {
   let apiKey = "5c043941096cfca1b8129a71701e2dcf";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(showTemperature);
+  axios.get(apiUrl).then(showWeather);
 }
 
 function getCurrentLocation(event) {
