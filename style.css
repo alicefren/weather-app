@@ -8,6 +8,12 @@ button {
   border: 1px solid #532e4f;
 }
 
+img {
+  display: block;
+  align: center;
+  margin: 0 auto;
+}
+
 .container {
   display: block;
   margin: 0 auto;
@@ -84,4 +90,8 @@ button {
 #celsius-link:hover,
 #fahrenheit-link:hover {
   text-decoration: underline;
+}
+
+#description {
+  text-transform: capitalize;
 }
