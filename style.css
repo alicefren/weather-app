@@ -50,6 +50,7 @@ button {
   display: block;
   text-align: center;
   background: rgba(0, 0, 0, 0);
+  border: none;
 }
 
 .fa-sun,
@@ -60,7 +61,7 @@ button {
   padding: 10px 10px;
 }
 
-.forecast {
+.todays-forecast {
   padding: 10px 0 0 20px;
   display: block;
   max-width: 90%;
